@@ -3,7 +3,7 @@ import static net.mindview.util.Print.*;
 
 public class MathOps {
     public static void main(String [] args) {
-        Random rand = new Random(47);
+        Random rand = new Random(74);
         int i, j, k;
         j = rand.nextInt(100) + 1;
         print("j : " + j);
