@@ -7,5 +7,10 @@ public class ShortCircuit {
 		// TODO Auto-generated method stub
 
 	}
+	static boolean test1(int val) {
 
+		print("test1(" + val + ")");
+		
+		return true;
+	}
 }
