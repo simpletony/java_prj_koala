@@ -346,15 +346,21 @@ class Casting {
 		long lng2 = (long)200;
 		lng2 = 200;
 		i = (int) lng2;
-		
-		
+
 		CastingNumbers.main(args);
 	}
+}
 
+class Overflow {
+	public static void main(String[] args) {
+		int big = Integer.MAX_VALUE;
+		print("big = " + big);
+		int bigger = big * 4;
+		print ("bigger = " + bigger);
+	}
 }
 
 class Preference {
-
 	public static void main(String[] args) {
 		
 		   int x = 1, y = 2, z = 3;
@@ -369,6 +375,7 @@ class Preference {
 		   Literals.main(args);
 		   StringOperators.main(args);
 		   Casting.main(args);
+		   Overflow.main(args);
 	}
 
 }
