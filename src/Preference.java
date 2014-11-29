@@ -1,5 +1,5 @@
-import static net.mindview.util.Print.print;
-
+import static net.mindview.util.Print.*;
+import static net.mindview.util.Range.*;
 import java.util.Random;
 
 class MathOps {
@@ -360,6 +360,80 @@ class Overflow {
 	}
 }
 
+class CommaOperator {
+	
+	public static void main(String[] args) {
+		for (int i = 1, j = i + 10; i < 5; i++, j = i *2) {
+			print("i = " + i + " j = " + j); 
+		}
+	}
+}
+
+class ForEachFloat {
+	
+	public static void run(String[] args) {
+		Random rand = new Random(47);
+		float f[] = new float[10];
+		for (int i = 0; i < 10; i++) {
+			f[i] = rand.nextFloat();
+		}
+		for (float x : f) {
+			print(x);			
+		}
+	}
+}
+
+class ForEachString {
+	
+	public static void run(String[] args) {
+		for (char c : "An african swallow".toCharArray()) {
+			System.out.print(c + " ");
+		}
+		
+		print();
+	}
+}
+
+class ForEachInt {
+	
+	public static void run(String[] args) {
+		
+		for (int i : range(10)) {
+			printnb(i + " ");
+		}
+		print();
+		
+		for (int i : range(5, 10)) {
+			printnb(i + " ");
+		}
+		print();
+		
+		for (int i : range(5, 20, 3)) {
+			printnb(i + " ");
+		}
+		print();
+	}
+}
+
+class IfElse2 {
+	
+	static int test(int testval, int target) {
+		if (testval > target) {
+			return +1;
+		} else if (testval < target) {
+			return -1;
+		} else {
+			return 0;
+		}
+	}
+	
+	public static void run(String[] args) {
+		print(test(10, 5));
+		print(test(5, 10));
+		print(test(5, 5));
+	}
+}
+
 class Preference {
 	public static void main(String[] args) {
 		
@@ -376,6 +450,11 @@ class Preference {
 		   StringOperators.main(args);
 		   Casting.main(args);
 		   Overflow.main(args);
+		   CommaOperator.main(args);
+		   ForEachFloat.run(args);
+		   ForEachString.run(args);
+		   ForEachInt.run(args);
+		   IfElse2.run(args);
 	}
 
 }

@@ -1,5 +1,3 @@
-import static net.mindview.util.Print.print;
-
 import  java.util.*;
 
 //
