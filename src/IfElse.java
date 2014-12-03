@@ -1,5 +1,6 @@
 import static net.mindview.util.Print.*;
 import static net.mindview.util.Range.*;
+import java.util.*;
 
 class BreakAndContinue {
 	
@@ -39,7 +40,7 @@ class WhileTest {
 			return result;
 	}
 	
-	static void main(String[] args) {
+	static void run(String[] args) {
 		while(condition())
 			print("Inside 'while'");
 		print("Exited 'while'");
@@ -47,7 +48,7 @@ class WhileTest {
 }
 
 class ListCharacters {
-	public static void main(String[] args) {
+	public static void run(String[] args) {
 		
 		for(char c = 0; c < 128; c ++) {
 			if (Character.isLowerCase(c)) {
@@ -58,15 +59,93 @@ class ListCharacters {
 	
 }
 
-class LabeledFor {
+class LabledWhile {
 	
 	public static void run(String[] args) {
 		
 		int i = 0;
-//		outer;
-		
+		outer:
+			while (true) {
+				print("Outer while loop");
+				while(true) {
+					i++;
+					print("i = " + i);
+					if (i == 1) {
+						print("continue");
+						continue;
+					}
+					if (i == 3) {
+						print("continue outer");
+						continue outer;
+					}
+					
+					if (i == 5) {
+						print("break");
+						break;
+					}
+					
+					if (i == 7) {
+						print("break outer");
+						break outer;
+					}
+				}
+			}
 	}
 }
+
+class LabeledFor {
+	
+	public static void run(String[] args) {
+		int i = 0;
+		for (; true;) {
+			for (; i < 10; i++) {
+				
+				print("i = " + i);
+				if (i == 2) {
+					print("continue");
+					continue;
+				}
+				if (i == 3) {
+					print("break");
+					i ++;
+					break;
+				}
+				if (i == 7) {
+					
+				}
+				
+			}
+			
+		}
+	}
+}
+
+class VowelsAndConsonants {
+	
+	public static void run(String[] args) {
+		
+		Random rand = new Random(47);
+		for (int i = 0; i< 100; i ++) {
+			int c  =  rand.nextInt(26) + 'a';
+			printnb((char)c + ", " + c + ": ");
+			switch(c) {
+			case 'a':
+			case 'e':
+			case 'i':
+			case 'o':
+			case 'u':
+				print("vowel");
+				break;
+			case 'y':
+			case 'w': print("Sometimes a vowel");
+			          break;
+			default:print("consonant");
+			}
+			
+		}
+	}
+}
+
 public class IfElse {
 	static int result = 0;
 	
@@ -90,9 +169,11 @@ public class IfElse {
 		test(5, 5);
 		print(result);
 		
-		WhileTest.main(args);
-		ListCharacters.main(args);
+		WhileTest.run(args);
+		ListCharacters.run(args);
 		BreakAndContinue.run(args);
+		LabledWhile.run(args);
+		VowelsAndConsonants.run(args);
 	}
 
 }
