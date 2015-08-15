@@ -1,2 +1,2 @@
-java_prj_sloth
+java_prj_koala
 ==============
